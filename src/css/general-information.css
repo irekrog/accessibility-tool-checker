@@ -1,0 +1,9 @@
+.general-information-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.general-information-wrapper p {
+  font-size: var(--text-font-size);
+  margin: 0;
+}

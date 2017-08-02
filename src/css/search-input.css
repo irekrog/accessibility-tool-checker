@@ -1,0 +1,28 @@
+/*:root {*/
+/*}*/
+
+.input-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  font-family: var(--font-family);
+  background: #FFFFFF;
+  margin-bottom: 15px;
+}
+
+.input-wrapper input {
+  min-height: 25px;
+  flex-basis: 25%;
+  margin-right: 5px;
+  font-family: var(--font-family);
+}
+
+.input-wrapper button {
+  border: 0;
+  color: white;
+  background-color: #7baec7;
+  cursor: pointer;
+  font-family: var(--font-family);
+}
