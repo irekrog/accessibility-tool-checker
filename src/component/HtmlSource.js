@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HtmlSource = ({sourceHtml}) => {
+const HtmlSource = ({ sourceHtml }) => {
   return <div>
     <pre>
       <code>{sourceHtml}</code>

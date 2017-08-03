@@ -6,7 +6,9 @@ const ERROR = 'Error',
       POTENTIAL_PROBLEM = 'Potential Problem',
       LIKELY_PROBLEM = 'Likely Problem';
 
-const ListItem = ({results, values}) => {
+const ListItem = ({ results, values }) => {
+  console.log(results);
+  console.log(values);
   const listItem = results.filter(item => {
     return (
       (item.resultType === ERROR && values.includes(ERROR)) ||

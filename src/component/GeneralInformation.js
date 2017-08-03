@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../css/general-information.css';
 
-const GeneralInformation = ({summary}) => {
+const GeneralInformation = ({ summary }) => {
   const { errors, likelyProblems, potentialProblems } = summary;
   return <div className="general-information-wrapper">
     <p>Errors: {errors}</p>
