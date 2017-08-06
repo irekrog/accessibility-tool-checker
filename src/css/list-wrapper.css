@@ -1,0 +1,7 @@
+.list-wrapper {
+  display: flex;
+}
+
+.list-wrapper > div {
+  flex: 1;
+}

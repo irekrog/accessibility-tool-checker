@@ -26,3 +26,8 @@
   cursor: pointer;
   font-family: var(--font-family);
 }
+
+.input-wrapper button:disabled {
+  background-color: gray;
+  cursor: default;
+}
