@@ -41,17 +41,14 @@
   font-size: 14px;
 }
 
-/*Hide the checkmark by default*/
 .checkbox input[type="checkbox"] + label::after {
   content: none;
 }
 
-/*Unhide on the checked state*/
 .checkbox input[type="checkbox"]:checked + label::after {
   content: "✔";
 }
 
-/*Adding focus styles on the outer-box of the fake checkbox*/
 .checkbox input[type="checkbox"]:focus + label::before {
   outline: rgb(59, 153, 252) auto 5px;
 }
