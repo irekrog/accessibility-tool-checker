@@ -8,8 +8,9 @@
   position: sticky;
   top: 0;
   font-family: var(--font-family);
-  background: #FFFFFF;
+  background: var(--background-main-color);
   margin-bottom: 15px;
+  z-index: 1;
 }
 
 .input-wrapper input {

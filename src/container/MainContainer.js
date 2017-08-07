@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import AcheckerContainer from "./achecker/AcheckerContainer";
-import Pa11yContainer from "./pa11y/Pa11yContainer";
+import AcheckerContainer from './achecker/AcheckerContainer';
+import Pa11yContainer from './pa11y/Pa11yContainer';
 import SearchInput from '../component/SearchInput';
 import ChooseTools from '../component/ChooseTools';
 
@@ -8,6 +8,7 @@ import axios from 'axios';
 
 import '../css/list-wrapper.css';
 import '../css/loading.css';
+import '../css/error.css';
 
 export default class MainContainer extends Component {
   state = {
@@ -16,12 +17,13 @@ export default class MainContainer extends Component {
     pa11y: [],
     html: '',
     link: '',
+    storeLink: '',
     startApp: true,
     loading: false,
-    checkboxes: [],
+    checkboxes: ['Error'],
     checkboxesTools: [],
-    tools: [],
-    correctLink: false
+    correctLink: false,
+    statusError: ''
   };
 
   handleInput = e => {
@@ -47,39 +49,42 @@ export default class MainContainer extends Component {
     });
   };
 
-
   sendRequest = () => {
     this.setState({
-      loading: true
+      loading: true,
+      statusError: '',
+      storeLink: this.state.link
     });
     axios.post('/data', {
       url: this.state.link,
       tools: this.state.checkboxesTools
     })
       .then(response => {
+        console.log(response);
         this.setState({
           results: response.data.results,
           summary: response.data.summary,
           pa11y: response.data.pa11y,
           loading: false,
           startApp: false
-        })
+        });
       })
       .catch(error => {
         console.log(error);
+        const { status, statusText } = error.response;
         this.setState({
           loading: false,
-          startApp: true
-        })
+          startApp: true,
+          statusError: `${status}: ${statusText}`
+        });
       });
   };
 
-  render() {
+  render () {
     let list = null, loading = null;
     if (this.state.loading) {
       loading = <div className="loading"><span>Loading...</span></div>;
-    }
-    else if (!this.state.startApp) {
+    } else if (!this.state.startApp) {
       list = <div className="list-wrapper">
         <AcheckerContainer
           summary={this.state.summary}
@@ -106,8 +111,9 @@ export default class MainContainer extends Component {
           correctLink={this.state.correctLink}
         />
         <ChooseTools handleCheckboxTools={this.handleCheckboxTools} values={this.state.checkboxesTools} />
+        {this.state.statusError && <p className="error">Error {this.state.storeLink}, {this.state.statusError}</p>}
         {list}
       </div>
-    )
+    );
   }
 }

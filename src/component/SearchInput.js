@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import '../css/search-input.css';
 
 const SearchInput = props => {
- return <div className="input-wrapper">
+  return <div className="input-wrapper">
     <input placeholder="Enter URL..." onChange={props.handleInput}/>
     <button disabled={!(props.values.length && props.correctLink)} onClick={props.sendRequest}>Check</button>
-  </div>
+  </div>;
 };
 
 SearchInput.propTypes = {

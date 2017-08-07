@@ -1,0 +1,57 @@
+.checkbox input[type="checkbox"] {
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.checkbox label {
+  position: relative;
+  display: inline-block;
+  line-height: 22px;
+  padding-left: 22px;
+  cursor: pointer;
+  font-size: var(--text-font-size);
+}
+
+.checkbox label:before,
+.checkbox label:after {
+  position: absolute;
+  content: "";
+  display: inline-block;
+}
+
+.checkbox label:before{
+  height: 16px;
+  width: 16px;
+
+  border: 1px solid;
+  border-radius: 2px;
+  left: 0px;
+  top: 3px;
+}
+
+.checkbox label::after {
+  content: '✔';
+  left: 2px;
+  top: 1px;
+  font-size: 14px;
+}
+
+/*Hide the checkmark by default*/
+.checkbox input[type="checkbox"] + label::after {
+  content: none;
+}
+
+/*Unhide on the checked state*/
+.checkbox input[type="checkbox"]:checked + label::after {
+  content: "✔";
+}
+
+/*Adding focus styles on the outer-box of the fake checkbox*/
+.checkbox input[type="checkbox"]:focus + label::before {
+  outline: rgb(59, 153, 252) auto 5px;
+}

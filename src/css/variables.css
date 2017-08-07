@@ -1,6 +1,7 @@
 :root {
   --text-font-size: 1.2rem;
   --font-family: Roboto, sans-serif;
+  --background-main-color: whitesmoke;
   /*font-size: calc(16px + (24 - 16) * (100vw - 400px) / (800 - 400));*/
 }
 

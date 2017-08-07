@@ -1,13 +1,12 @@
 import React from 'react';
 import ListItemPa11y from '../../component/ListItemPa11y';
 
-const Pa11yContainer  = ({ pa11y, tools }) => {
+const Pa11yContainer = ({ pa11y, tools }) => {
   if (tools.includes('pa11y')) {
     return <div>
       <ListItemPa11y pa11y={pa11y} />
-    </div>
-  }
-  else {
+    </div>;
+  } else {
     return null;
   }
 };

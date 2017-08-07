@@ -10,5 +10,6 @@ html {
 body {
   margin: 0;
   padding: 4px;
-  font-family: var(--font-family)
+  font-family: var(--font-family);
+  background-color: var(--background-main-color);
 }

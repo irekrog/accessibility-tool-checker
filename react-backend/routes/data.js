@@ -3,6 +3,7 @@ var router = express.Router();
 var achecker = require('achecker');
 var rp = require('request-promise-native');
 var pa11y = require('pa11y');
+var HTTPStatus = require('http-status');
 var test = pa11y({
   ignore: [
     'notice', 'warning'
@@ -95,7 +96,9 @@ router.post('/', function (req, res, next) {
     })
     .catch(error => {
       const statusCode = error.statusCode || 400;
-      res.status(statusCode).send({error: error.message});
+      const textStatusCode = HTTPStatus[statusCode];
+
+      res.status(statusCode).send({error: textStatusCode});
     });
 
 });
